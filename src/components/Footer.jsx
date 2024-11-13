@@ -1,5 +1,6 @@
-import React from 'react'
-import Logo from "../assets/images/logo.png"
+import React from 'react';
+import { Link } from "react-router-dom";
+import Logo from "../assets/images/logo.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
@@ -35,18 +36,18 @@ const Footer
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
                 <img src={Logo} className="sm:w-24 w-28 "/>
                 <div className="flex items-center gap-3 mt-8 -ml-2">
-                    <a href="#">
+                    <Link to="#">
                         <FaFacebookF className="text-3xl hover:text-primary duration-300"/>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="#">
                         <FaTwitter className="text-3xl hover:text-primary duration-300"/>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="#">
                         <AiFillInstagram className="text-3xl hover:text-primary duration-300"/>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="#">
                         <FaYoutube className="text-3xl hover:text-primary duration-300"/>
-                    </a>
+                    </Link>
                 </div> 
             </div>
             {/* Links */}

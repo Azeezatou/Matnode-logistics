@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Logo from "../assets/images/logo.png"
 import Phone from "../assets/images/Vector.png"
 const Navbar = () => {
@@ -12,19 +13,19 @@ const Navbar = () => {
             </div>
             <ul className="hidden md:flex gap-7  md:text-sm">
                 <li>
-                    <a href="#" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Home</a>
+                    <Link to="/" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Home</Link>
                 </li>
                 <li>
-                    <a href="/#About" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">About Us</a>
+                    <Link to="/about" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">About Us</Link>
                 </li>
                 <li>
-                    <a href="#" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Services</a>
+                    <Link to="/services" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Services</Link>
                 </li>
                 <li>
-                    <a href="#" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Why Choose Us</a>
+                    <Link to="/support" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Why Choose Us</Link>
                 </li>
                 <li>
-                    <a href="#" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Get Quote</a>
+                    <Link to="/quote" className="text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold">Get Quote</Link>
                 </li>
             </ul>
             <div className="flex gap-4 sm:text-sm">
