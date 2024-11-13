@@ -1,21 +1,19 @@
-
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Support from './components/Support'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import HomePageView from './views/HomePageView'
+import QuotePageView from './views/QuotePageView'
+
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <Services />
-      <Support/>
-      <Footer/>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePageView />} />
+        <Route path='/quote' element={<QuotePageView />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
