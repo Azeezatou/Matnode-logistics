@@ -52,7 +52,7 @@ const Footer = () => {
           <h3 className='font-bold'>Quick Links</h3>
           <div className='border-b-2 border-secondary w-1/5 my-2'></div>
           {FooterLinks.map((footer) => (
-            <ul>
+            <ul key={footer.title}>
               <li className='py-1'>{footer.title}</li>
             </ul>
           ))}

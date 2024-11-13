@@ -10,9 +10,9 @@ const Navbar = () => {
         id='Navbar'
       >
         <div>
-          <a href='#'>
+          <Link to='/'>
             <img src={Logo} alt='Matnode logo' className='sm:w-32 w-28' />
-          </a>
+          </Link>
         </div>
         <ul className='hidden md:flex gap-7  md:text-sm'>
           <li>

@@ -83,7 +83,7 @@ const Support = () => {
           <div>
             <div className='grid grid-cols-2 md:grid-cols-2 gap-4 my-6'>
               {Solutions.map((solution) => (
-                <div>
+                <div key={solution.title}>
                   <img src={solution.image} className='py-1' />
                   <p className='font-Oswald font-extrabold'>{solution.title}</p>
                   <p className='font-Rubik text-sm font-thin'>
