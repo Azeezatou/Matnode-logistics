@@ -1,5 +1,12 @@
+import { SupportSection } from '../components/core/home/Support'
+
 const QuotePageView = () => {
-  return <>Hello Quote Page</>
+  return (
+    <>
+      <div></div>
+      <SupportSection />
+    </>
+  )
 }
 
 export default QuotePageView
