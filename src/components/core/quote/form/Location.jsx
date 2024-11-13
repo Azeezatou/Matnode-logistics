@@ -28,7 +28,7 @@ const Location = ({
     <div className='flex flex-col gap-[32px]'>
       {/* Country section */}
       <div className='flex flex-col gap-[16px]'>
-        <div className='flex flex-col lg:flex-row gap-[24px] w-full'>
+        <div className='grid grid-cols-2 gap-[24px] w-full'>
           <div className='flex flex-col w-full gap-2'>
             <Input
               placeholder='Port name/code'
@@ -55,7 +55,7 @@ const Location = ({
           <Select
             placeholder='Country'
             options={countries || []}
-            className='w-[400px]'
+            className='w-full md:w-[400px]'
             inputRef={countryRef}
           />
         </div>
@@ -67,7 +67,7 @@ const Location = ({
           <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
             Delivery
           </p>
-          <div className='flex flex-col lg:flex-row gap-2'>
+          <div className='grid grid-cols-2 gap-2'>
             {deliveries.map((service) => (
               <div
                 key={service}
@@ -85,7 +85,7 @@ const Location = ({
         </div>
 
         <div className='flex flex-col gap-[16px]'>
-          <div className='flex flex-col lg:flex-row gap-[24px] w-full'>
+          <div className='grid grid-cols-2 gap-[24px] w-full'>
             <Select
               placeholder='Country'
               options={countries || []}
@@ -99,7 +99,7 @@ const Location = ({
             />
           </div>
 
-          <div className='grid grid-cols-2 gap-[24px]'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-[24px]'>
             <Input placeholder='Zip code' inputRef={zipCodeRef} />
           </div>
         </div>
@@ -112,8 +112,8 @@ const Location = ({
         </p>
 
         {/* Calculation */}
-        <div className='flex flex-col lg:flex-row gap-[40px] w-full'>
-          <div className='flex gap-[8px] items-center'>
+        <div className='flex flex-row justify-between flex-wrap md:justify-normal gap-1 md:gap-[40px] w-full'>
+          <div className='flex flex-col md:flex-row gap-[8px] items-start md:items-center'>
             <p className='text-[#3C3C3C] text-[14px]'>Calculation by: </p>
 
             <div className='flex items-center gap-[10px] border border-[#6C757DB2] p-[8px] rounded-[8px]'>
@@ -131,7 +131,8 @@ const Location = ({
             </div>
           </div>
 
-          <div className='flex gap-[8px] items-center'>
+          {/* Measurement */}
+          <div className='flex flex-col md:flex-row gap-[8px] items-start md:items-center'>
             <p className='text-[#3C3C3C] text-[14px]'>Measurement: </p>
 
             <div className='flex items-center gap-[10px] border border-[#6C757DB2] p-[8px] rounded-[8px]'>
@@ -153,7 +154,7 @@ const Location = ({
 
         {/* form */}
         <div className='flex flex-col gap-[16px]'>
-          <div className='flex flex-col lg:flex-row gap-[24px] w-full'>
+          <div className='grid grid-cols-3 gap-[8px] md:gap-[24px] w-full'>
             <Select
               placeholder='Unit type'
               options={[]}
@@ -172,7 +173,8 @@ const Location = ({
               inputRef={weightRef}
             />
           </div>
-          <div className='flex flex-col lg:flex-row gap-[24px]'>
+
+          <div className='grid grid-cols-3 gap-[8px] md:gap-[24px] w-full'>
             <Input
               placeholder='Length'
               className='flex-1'

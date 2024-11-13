@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 
 const ServiceType = ({ active, setServiceType }) => {
-  const services = ['HCL', 'FCL', 'AIR']
+  const services = ['HCL', 'FCL', 'Air', 'Road']
 
   return (
     <div className='flex flex-col gap-2'>
       <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
         Service type
       </p>
-      <div className='flex flex-col lg:flex-row gap-2'>
+      <div className='grid grid-cols-2 lg:grid-cols-4 gap-2'>
         {services.map((service) => (
           <div
             key={service}

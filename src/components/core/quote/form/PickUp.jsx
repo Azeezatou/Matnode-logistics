@@ -8,7 +8,7 @@ const PickUp = ({ active, setPickUp }) => {
       <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
         Pickup from
       </p>
-      <div className='flex flex-col lg:flex-row gap-2'>
+      <div className='grid grid-cols-2 lg:grid-cols-4 gap-2'>
         {services.map((service) => (
           <div
             key={service}
