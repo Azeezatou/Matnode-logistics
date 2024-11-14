@@ -5,13 +5,10 @@ import Phone from '../../assets/images/Vector.png'
 const Navbar = () => {
   return (
     <>
-      <div
-        className='px-6 py-2 mx-auto text-center flex justify-between items-center shadow'
-        id='Navbar'
-      >
+      <div className='px-3 py-2 mx-auto text-center flex justify-between items-center shadow'id='Navbar' >
         <div>
           <Link to='/'>
-            <img src={Logo} alt='Matnode logo' className='sm:w-32 w-28' />
+            <img src={Logo} alt='Matnode logo' className='md:w-36 w-24' />
           </Link>
         </div>
         <ul className='hidden md:flex gap-7  md:text-sm'>
@@ -56,16 +53,16 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className='flex gap-4 sm:text-sm'>
-          <div className='text-end text-2xl'>
-            <div className=' text-sm'>FREE CALL IN U.S.A</div>
+        <div className='flex gap-1 m-2 '>
+          <div className='text-end pr-3'>
+            <div className='text-sm md:text-2xl'>FREE CALL IN U.S.A</div>
             <div>
-              <a href='+234012916911' className='sm:text-xl font-bold text-2xl'>
+              <a href='+234012916911' className='text-sm font-bold md:text-2xl'>
                 +234 01-291 6911
               </a>
             </div>
           </div>
-          <img src={Phone} alt='phone icon' className='size-8 m-auto ' />
+          <img src={Phone} alt='phone icon' className='size-6 md:size-8 m-auto ' />
         </div>
       </div>
     </>

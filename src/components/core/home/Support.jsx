@@ -62,7 +62,7 @@ const Support = () => {
       <SupportSection />
 
       {/* Why Choose Us */}
-      <div className='flex flex-col md:flex-row md:items-start items-center justify-between max-w-7xl mx-auto sm:items-start p-8'>
+      <div className='flex flex-col md:flex-row md:items-start items-center mx-auto justify-between max-w-7xl sm:items-start py-8'>
         {/* text */}
         <div className=' flex-1 md:mr-4 mb-8 md:mb-o max-w-1/3 my-5 py-5 -mr-6 w-1/2'>
           <h2 className=' uppercase text-4xl font-Oswald stroke-text2 my-3 py-2'>
@@ -103,7 +103,7 @@ const Support = () => {
         </div>
       </div>
       {/* Last section */}
-      <div className='container bg-primary flex mb-4'>
+      <div className='container bg-primary flex mb-2 md:mb-4'>
         <img
           src={Box}
           alt='image of a box containing parcel'
@@ -113,7 +113,7 @@ const Support = () => {
           <h2 className='font-Oswald font-extrabold text-[#1b1603] text-2xl md:text-6xl mb-5'>
             Get your items delivered smoothly and on time
           </h2>
-          <button className='bg-[#1b1603] md:my-4 text-white p-9 text-sm md:text-xl lg:px-5 py-3 font-Rubik font-semibold text-center uppercase hover:text-black hover:bg-primary hover:border-2 hover:border-black'>
+          <button className='bg-[#1b1603] my-4 text-white p-9 text-sm md:text-xl lg:px-5 py-3 font-Rubik font-semibold text-center uppercase hover:text-black hover:bg-primary hover:border-2 hover:border-black'>
             Get Quote
           </button>
         </div>

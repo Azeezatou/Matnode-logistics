@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className=" flex flex-col sm:flex-row h-auto md:bg-[url('../assets/images/port.jpg')] ">
       {/* Left hero section */}
-      <div className=' text-white bg-[#1b1603] p-24 md:p-20 flex flex-col items-center justify-center md:w-1/2 min-h-[620px] '>
+      <div className=' text-white bg-[#1b1603] md:p-24 p-16 flex flex-col items-center justify-center md:w-1/2 min-h-[620px] '>
         <div className='relative container '>
           <div className='transparent '>
             <h1 className='absolute stroke-text text-[80px] sm:text-[100px] md:text-[100px] lg:text-[130px] font-Oswald tracking-tight font-extralight'>
