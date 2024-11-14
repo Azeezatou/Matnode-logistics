@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const PickUp = ({ active, setPickUp }) => {
+const PickUp = ({ formData, setFormData }) => {
   const services = ['FCA-port', 'DDP', 'DAP', 'EXW']
 
   return (
@@ -12,9 +12,9 @@ const PickUp = ({ active, setPickUp }) => {
         {services.map((service) => (
           <div
             key={service}
-            onClick={() => setPickUp(service)}
+            onClick={() => setFormData({ ...formData, pickUp: service })}
             className={`flex items-center justify-center w-full h-[38px] cursor-pointer ${
-              active === service
+              formData.pickUp === service
                 ? 'border-2 border-[#597AFF] text-[#597AFF] font-semibold'
                 : 'border border-[#6C757D] text-[#6C757D]'
             }`}
@@ -28,8 +28,8 @@ const PickUp = ({ active, setPickUp }) => {
 }
 
 PickUp.propTypes = {
-  setPickUp: PropTypes.func,
-  active: PropTypes.string,
+  formData: PropTypes.object.isRequired,
+  setFormData: PropTypes.func.isRequired,
 }
 
 export default PickUp

@@ -11,6 +11,7 @@ const Select = ({
   message,
   error,
   inputRef,
+  name,
 }) => {
   return (
     <div className={`flex flex-col gap-1 relative ${className}`}>
@@ -20,6 +21,7 @@ const Select = ({
           <select
             id={label}
             value={value || ''}
+            name={name}
             onChange={onChange || (() => {})}
             aria-label={label}
             placeholder={placeholder}
@@ -27,7 +29,7 @@ const Select = ({
             ref={inputRef}
           >
             {placeholder && (
-              <option value='' disabled>
+              <option value='' selected disabled>
                 {placeholder}
               </option>
             )}
@@ -70,6 +72,7 @@ Select.propTypes = {
   message: PropTypes.string,
   error: PropTypes.bool,
   inputRef: PropTypes.object,
+  name: PropTypes.string,
 }
 
 export default Select

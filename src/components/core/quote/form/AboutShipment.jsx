@@ -3,17 +3,11 @@ import Input from '../../../ui/Input'
 import Select from '../../../ui/Select'
 import HSCodeInput from './HSCodeInput'
 
-const AboutShipment = ({
-  hsCodeRef,
-  currencyRef,
-  vatRef,
-  descriptionRef,
-  costRef,
-  freightRef,
-  dutyRef,
-  levyRef,
-  insuranceRef,
-}) => {
+const AboutShipment = ({ formData, handleChange }) => {
+  const currencies = [
+    { value: 'usd', label: 'USD' },
+    { value: 'eur', label: 'EUR' },
+  ]
   return (
     <div className='flex flex-col gap-[24px]'>
       <p className='text-[#3C3C3C] text-[15px] font-bold font-Rubik'>
@@ -23,7 +17,9 @@ const AboutShipment = ({
       <HSCodeInput
         className='w-full'
         placeholder='Search HS code'
-        inputRef={hsCodeRef}
+        onChange={handleChange}
+        name='hsCode'
+        value={formData.hsCode}
       />
 
       <div className='flex flex-col gap-[16px]'>
@@ -33,20 +29,26 @@ const AboutShipment = ({
               options={[]}
               placeholder='Currency'
               className='w-full'
-              inputRef={currencyRef}
+              onChange={handleChange}
+              name='currency'
+              value={formData.currency}
             />
             <Input
               placeholder='VAT'
               type={'number'}
               className='w-full'
-              inputRef={vatRef}
+              onChange={handleChange}
+              name='vat'
+              value={formData.vat}
             />
           </div>
           <Input
             placeholder='Description'
             type={'number'}
             className='w-full lg:w-[49%]'
-            inputRef={descriptionRef}
+            onChange={handleChange}
+            name='description'
+            value={formData.description}
           />
         </div>
 
@@ -56,7 +58,9 @@ const AboutShipment = ({
             placeholder='0'
             type={'number'}
             className='w-full'
-            inputRef={costRef}
+            onChange={handleChange}
+            name='cost'
+            value={formData.cost}
           />
 
           <Input
@@ -64,7 +68,9 @@ const AboutShipment = ({
             placeholder='0'
             type={'number'}
             className='w-full'
-            inputRef={freightRef}
+            onChange={handleChange}
+            name='freight'
+            value={formData.freight}
           />
 
           <Input
@@ -72,7 +78,9 @@ const AboutShipment = ({
             placeholder='0'
             type={'number'}
             className='w-full'
-            inputRef={dutyRef}
+            onChange={handleChange}
+            name='duty'
+            value={formData.duty}
           />
         </div>
 
@@ -82,7 +90,9 @@ const AboutShipment = ({
             placeholder='0'
             type={'number'}
             className='w-full'
-            inputRef={levyRef}
+            onChange={handleChange}
+            name='levy'
+            value={formData.levy}
           />
 
           <Input
@@ -90,7 +100,9 @@ const AboutShipment = ({
             placeholder='0'
             type={'number'}
             className='w-full'
-            inputRef={insuranceRef}
+            onChange={handleChange}
+            name='insurance'
+            value={formData.insurance}
           />
         </div>
       </div>
@@ -99,15 +111,8 @@ const AboutShipment = ({
 }
 
 AboutShipment.propTypes = {
-  hsCodeRef: PropTypes.object.isRequired,
-  currencyRef: PropTypes.object.isRequired,
-  vatRef: PropTypes.object.isRequired,
-  descriptionRef: PropTypes.object.isRequired,
-  costRef: PropTypes.object.isRequired,
-  freightRef: PropTypes.object.isRequired,
-  dutyRef: PropTypes.object.isRequired,
-  levyRef: PropTypes.object.isRequired,
-  insuranceRef: PropTypes.object.isRequired,
+  formData: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
 }
 
 export default AboutShipment

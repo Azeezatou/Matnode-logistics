@@ -1,28 +1,23 @@
 import PropTypes from 'prop-types'
+import countriesData from '../../../../assets/country.json'
 import Input from '../../../ui/Input'
 import Select from '../../../ui/Select'
 
-const Location = ({
-  setDelivery,
-  activeDelivery,
-  portNameRef,
-  zipCodeRef,
-  countryRef,
-  pickUpDateRef,
-  noPortRef,
-  countries,
-  calculationBy,
-  setCalculationBy,
-  measurementUnit,
-  setMeasurementUnit,
-  unitTypeRef,
-  quantityRef,
-  weightRef,
-  lengthRef,
-  widthRef,
-  heightRef,
-}) => {
+const Location = ({ formData, setFormData, handleChange }) => {
   const deliveries = ['Port', 'Address']
+
+  const countryOptions = countriesData.map((country) => ({
+    value: country.name,
+    label: country.name,
+  }))
+
+  const unitTypes = [
+    { value: 'Pallet', label: 'Pallet' },
+    { value: 'Box', label: 'Box' },
+    { value: 'Carton', label: 'Carton' },
+    { value: 'Bag', label: 'Bag' },
+    { value: 'Other', label: 'Other' },
+  ]
 
   return (
     <div className='flex flex-col gap-[32px]'>
@@ -33,10 +28,17 @@ const Location = ({
             <Input
               placeholder='Port name/code'
               className='w-full'
-              inputRef={portNameRef}
+              onChange={handleChange}
+              name='portName'
+              value={formData.portName}
             />
             <div className='flex flex-row gap-2 items-center'>
-              <input type='checkbox' ref={noPortRef} />
+              <input
+                type='checkbox'
+                onChange={handleChange}
+                name='noPort'
+                value={formData.noPort}
+              />
               <p className='font-Rubik text-[#6C757D] text-[14px]'>
                 I don’t have a port to specify
               </p>
@@ -47,16 +49,20 @@ const Location = ({
             type='date'
             className='w-full'
             message='(Optional)'
-            inputRef={pickUpDateRef}
+            onChange={handleChange}
+            name='pickDate'
+            value={formData.pickDate}
           />
         </div>
 
         <div>
           <Select
             placeholder='Country'
-            options={countries || []}
+            options={countryOptions}
             className='w-full md:w-[400px]'
-            inputRef={countryRef}
+            onChange={handleChange}
+            name='country'
+            value={formData.country}
           />
         </div>
       </div>
@@ -71,9 +77,9 @@ const Location = ({
             {deliveries.map((service) => (
               <div
                 key={service}
-                onClick={() => setDelivery(service)}
+                onClick={() => setFormData({ ...formData, delivery: service })}
                 className={`flex items-center justify-center w-full h-[38px] cursor-pointer ${
-                  activeDelivery === service
+                  formData.delivery === service
                     ? 'border-2 border-[#597AFF] text-[#597AFF] font-semibold'
                     : 'border border-[#6C757D] text-[#6C757D]'
                 }`}
@@ -88,19 +94,28 @@ const Location = ({
           <div className='grid grid-cols-2 gap-[24px] w-full'>
             <Select
               placeholder='Country'
-              options={countries || []}
+              options={countryOptions}
               className='w-full'
-              inputRef={countryRef}
+              onChange={handleChange}
+              name='country'
+              value={formData.country}
             />
             <Input
-              placeholder='Port name/code'
+              placeholder='city'
               className='w-full'
-              inputRef={portNameRef}
+              onChange={handleChange}
+              name='city'
+              value={formData.city}
             />
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-[24px]'>
-            <Input placeholder='Zip code' inputRef={zipCodeRef} />
+            <Input
+              placeholder='Zip code'
+              onChange={handleChange}
+              name='zipCode'
+              value={formData.zipCode}
+            />
           </div>
         </div>
       </div>
@@ -121,9 +136,13 @@ const Location = ({
                 <div
                   key={item}
                   className={`py-[2px] px-[10px] rounded-[8px] text-[#6C757D] cursor-pointer ${
-                    calculationBy === item ? 'border border-[#597AFF]' : ''
+                    formData.calculationBy === item
+                      ? 'border border-[#597AFF]'
+                      : ''
                   }`}
-                  onClick={() => setCalculationBy(item)}
+                  onClick={() =>
+                    setFormData({ ...formData, calculationBy: item })
+                  }
                 >
                   <p className='text-[14px]'>{item}</p>
                 </div>
@@ -140,9 +159,13 @@ const Location = ({
                 <div
                   key={item}
                   className={`py-[2px] px-[10px] rounded-[8px] text-[#6C757D] cursor-pointer ${
-                    measurementUnit === item ? 'border border-[#597AFF]' : ''
+                    formData.measurementUnit === item
+                      ? 'border border-[#597AFF]'
+                      : ''
                   }`}
-                  onClick={() => setMeasurementUnit(item)}
+                  onClick={() =>
+                    setFormData({ ...formData, measurementUnit: item })
+                  }
                 >
                   <p className='text-[14px]'>{item}</p>
                 </div>
@@ -157,20 +180,26 @@ const Location = ({
           <div className='grid grid-cols-3 gap-[8px] md:gap-[24px] w-full'>
             <Select
               placeholder='Unit type'
-              options={[]}
+              options={unitTypes}
               className='flex-[0.8]'
-              inputRef={unitTypeRef}
+              onChange={handleChange}
+              name='unitType'
+              value={formData.unitType}
             />
             <Input
               placeholder='Quantity'
               type='number'
               className='flex-1'
-              inputRef={quantityRef}
+              onChange={handleChange}
+              name='quantity'
+              value={formData.quantity}
             />
             <Input
               placeholder='Unit weight'
               className='flex-1'
-              inputRef={weightRef}
+              onChange={handleChange}
+              name='weight'
+              value={formData.weight}
             />
           </div>
 
@@ -178,17 +207,23 @@ const Location = ({
             <Input
               placeholder='Length'
               className='flex-1'
-              inputRef={lengthRef}
+              onChange={handleChange}
+              name='length'
+              value={formData.length}
             />
             <Input
               placeholder='Width'
               className='flex-[0.9]'
-              inputRef={widthRef}
+              onChange={handleChange}
+              name='width'
+              value={formData.width}
             />
             <Input
               placeholder='Height'
               className='flex-1'
-              inputRef={heightRef}
+              onChange={handleChange}
+              name='height'
+              value={formData.height}
             />
           </div>
         </div>
@@ -198,24 +233,9 @@ const Location = ({
 }
 
 Location.propTypes = {
-  setDelivery: PropTypes.func,
-  activeDelivery: PropTypes.string,
-  portNameRef: PropTypes.object,
-  zipCodeRef: PropTypes.object,
-  countryRef: PropTypes.object,
-  pickUpDateRef: PropTypes.object,
-  noPortRef: PropTypes.object,
-  countries: PropTypes.array,
-  unitTypeRef: PropTypes.object,
-  quantityRef: PropTypes.object,
-  weightRef: PropTypes.object,
-  lengthRef: PropTypes.object,
-  widthRef: PropTypes.object,
-  heightRef: PropTypes.object,
-  calculationBy: PropTypes.string,
-  setCalculationBy: PropTypes.func,
-  measurementUnit: PropTypes.string,
-  setMeasurementUnit: PropTypes.func,
+  formData: PropTypes.object,
+  setFormData: PropTypes.func,
+  handleChange: PropTypes.func,
 }
 
 export default Location
