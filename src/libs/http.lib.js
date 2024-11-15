@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { base_url } from './constants/env.constants'
 
 export const apiResponse = (success, message, data) => {
   return {
@@ -12,7 +11,7 @@ export const apiResponse = (success, message, data) => {
 export const httpRequest = (setLoading) => {
   // Here we set the base URL for all requests made to the api
   const api = axios.create({
-    baseURL: base_url,
+    baseURL: '.env',
   })
 
   // We set an interceptor for each request to

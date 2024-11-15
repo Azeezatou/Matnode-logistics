@@ -6,6 +6,7 @@ import PickUp from './form/PickUp'
 import QuoteContact from './form/QuoteContact'
 import QuoteOptionsCheckboxes from './form/QuoteOptionsCheckboxes'
 import ServiceType from './form/ServiceType'
+
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
     serviceType: '',
@@ -59,6 +60,8 @@ const QuoteForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('submitted', formData)
+
+    const formData = {}
   }
 
   return (
