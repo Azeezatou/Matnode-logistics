@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className='px-6 py-2 mx-auto text-center flex justify-between items-center shadow'
+        className='px-[40px] py-2 mx-auto text-center flex justify-between items-center shadow'
         id='Navbar'
       >
         <div>

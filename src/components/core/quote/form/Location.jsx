@@ -22,157 +22,172 @@ const Location = ({ formData, setFormData, handleChange }) => {
   return (
     <div className='flex flex-col gap-[32px]'>
       {/* Country section */}
-      <div className='flex flex-col gap-[16px]'>
-        <div className='grid grid-cols-2 gap-[24px] w-full'>
-          <div className='flex flex-col w-full gap-2'>
-            <Input
-              placeholder='Port name/code'
-              className='w-full'
-              onChange={handleChange}
-              name='portName'
-              value={formData.portName}
-            />
-            <div className='flex flex-row gap-2 items-center'>
-              <input
-                type='checkbox'
-                onChange={handleChange}
-                name='noPort'
-                value={formData.noPort}
-              />
-              <p className='font-Rubik text-[#6C757D] text-[14px]'>
-                I don’t have a port to specify
-              </p>
-            </div>
-          </div>
-          <Input
-            placeholder='Pick up date'
-            type='date'
-            className='w-full'
-            message='(Optional)'
-            onChange={handleChange}
-            name='pickDate'
-            value={formData.pickDate}
-          />
-        </div>
-
-        <div>
-          <Select
-            placeholder='Country'
-            options={countryOptions}
-            className='w-full md:w-[400px]'
-            onChange={handleChange}
-            name='country'
-            value={formData.country}
-          />
-        </div>
-      </div>
-
-      {/* Delivery,  */}
-      <div className='flex flex-col gap-[24px]'>
-        <div className='flex flex-col gap-2'>
-          <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
-            Delivery
-          </p>
-          <div className='grid grid-cols-2 gap-2'>
-            {deliveries.map((service) => (
-              <div
-                key={service}
-                onClick={() => setFormData({ ...formData, delivery: service })}
-                className={`flex items-center justify-center w-full h-[38px] cursor-pointer ${
-                  formData.delivery === service
-                    ? 'border-2 border-[#597AFF] text-[#597AFF] font-semibold'
-                    : 'border border-[#6C757D] text-[#6C757D]'
-                }`}
-              >
-                <p className=' text-[16px] font-Rubik'>{service}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
+      {formData.pickUp === 'FCA-port' && (
         <div className='flex flex-col gap-[16px]'>
           <div className='grid grid-cols-2 gap-[24px] w-full'>
+            <div className='flex flex-col w-full gap-2'>
+              <Input
+                placeholder='Port name/code'
+                className='w-full'
+                onChange={handleChange}
+                name='portName'
+                value={formData.portName}
+              />
+              <div className='flex flex-row gap-2 items-center'>
+                <input
+                  type='checkbox'
+                  onChange={handleChange}
+                  name='noPort'
+                  value={formData.noPort}
+                />
+                <p className='font-Rubik text-[#6C757D] text-[14px]'>
+                  I don’t have a port to specify
+                </p>
+              </div>
+            </div>
+            <Input
+              placeholder='Pick up date'
+              type='date'
+              className='w-full'
+              message='(Optional)'
+              onChange={handleChange}
+              name='pickDate'
+              value={formData.pickDate}
+            />
+          </div>
+
+          <div>
             <Select
               placeholder='Country'
               options={countryOptions}
-              className='w-full'
+              className='w-full md:w-[400px]'
               onChange={handleChange}
               name='country'
               value={formData.country}
             />
-            <Input
-              placeholder='city'
-              className='w-full'
-              onChange={handleChange}
-              name='city'
-              value={formData.city}
-            />
-          </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-[24px]'>
-            <Input
-              placeholder='Zip code'
-              onChange={handleChange}
-              name='zipCode'
-              value={formData.zipCode}
-            />
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Delivery,  */}
+      {(formData.pickUp !== 'FCA-port' ||
+        (formData.pickUp === 'FCA-port' &&
+          formData.country &&
+          (formData.portName || formData.noPort))) && (
+        <div className='flex flex-col gap-[24px]'>
+          <div className='flex flex-col gap-2'>
+            <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
+              Delivery
+            </p>
+            <div className='grid grid-cols-2 gap-2'>
+              {deliveries.map((service) => (
+                <div
+                  key={service}
+                  onClick={() =>
+                    setFormData({ ...formData, delivery: service })
+                  }
+                  className={`flex items-center justify-center w-full h-[38px] cursor-pointer ${
+                    formData.delivery === service
+                      ? 'border-2 border-[#597AFF] text-[#597AFF] font-semibold'
+                      : 'border border-[#6C757D] text-[#6C757D]'
+                  }`}
+                >
+                  <p className=' text-[16px] font-Rubik'>{service}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {formData.delivery === 'Address' && (
+            <div className='flex flex-col gap-[16px]'>
+              <div className='grid grid-cols-2 gap-[24px] w-full'>
+                <Select
+                  placeholder='Country'
+                  options={countryOptions}
+                  className='w-full'
+                  onChange={handleChange}
+                  name='country'
+                  value={formData.country}
+                />
+                <Input
+                  placeholder='city'
+                  className='w-full'
+                  onChange={handleChange}
+                  name='city'
+                  value={formData.city}
+                />
+              </div>
+
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-[24px]'>
+                <Input
+                  placeholder='Zip code'
+                  onChange={handleChange}
+                  name='zipCode'
+                  value={formData.zipCode}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Packaging section */}
       <div className='flex flex-col gap-[24px]'>
-        <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
-          Packaging
-        </p>
+        {formData.delivery === 'Port' && (
+          <p className='text-[15px] font-Rubik text-[#3C3C3C] font-bold'>
+            Packaging
+          </p>
+        )}
 
         {/* Calculation */}
-        <div className='flex flex-row justify-between flex-wrap md:justify-normal gap-1 md:gap-[40px] w-full'>
-          <div className='flex flex-col md:flex-row gap-[8px] items-start md:items-center'>
-            <p className='text-[#3C3C3C] text-[14px]'>Calculation by: </p>
+        {formData.delivery === 'Port' && (
+          <div className='flex flex-row justify-between flex-wrap md:justify-normal gap-1 md:gap-[40px] w-full'>
+            <div className='flex flex-col md:flex-row gap-[8px] items-start md:items-center'>
+              <p className='text-[#3C3C3C] text-[14px]'>Calculation by: </p>
 
-            <div className='flex items-center gap-[10px] border border-[#6C757DB2] p-[8px] rounded-[8px]'>
-              {['Unit', 'Total Shipment'].map((item) => (
-                <div
-                  key={item}
-                  className={`py-[2px] px-[10px] rounded-[8px] text-[#6C757D] cursor-pointer ${
-                    formData.calculationBy === item
-                      ? 'border border-[#597AFF]'
-                      : ''
-                  }`}
-                  onClick={() =>
-                    setFormData({ ...formData, calculationBy: item })
-                  }
-                >
-                  <p className='text-[14px]'>{item}</p>
-                </div>
-              ))}
+              <div className='flex items-center gap-[10px] border border-[#6C757DB2] p-[8px] rounded-[8px]'>
+                {['Unit', 'Total Shipment'].map((item) => (
+                  <div
+                    key={item}
+                    className={`py-[2px] px-[10px] rounded-[8px] text-[#6C757D] cursor-pointer ${
+                      formData.calculationBy === item
+                        ? 'border border-[#597AFF]'
+                        : ''
+                    }`}
+                    onClick={() =>
+                      setFormData({ ...formData, calculationBy: item })
+                    }
+                  >
+                    <p className='text-[14px]'>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Measurement */}
+            <div className='flex flex-col md:flex-row gap-[8px] items-start md:items-center'>
+              <p className='text-[#3C3C3C] text-[14px]'>Measurement: </p>
+
+              <div className='flex items-center gap-[10px] border border-[#6C757DB2] p-[8px] rounded-[8px]'>
+                {['cm/kg', 'inches/lbs'].map((item) => (
+                  <div
+                    key={item}
+                    className={`py-[2px] px-[10px] rounded-[8px] text-[#6C757D] cursor-pointer ${
+                      formData.measurementUnit === item
+                        ? 'border border-[#597AFF]'
+                        : ''
+                    }`}
+                    onClick={() =>
+                      setFormData({ ...formData, measurementUnit: item })
+                    }
+                  >
+                    <p className='text-[14px]'>{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Measurement */}
-          <div className='flex flex-col md:flex-row gap-[8px] items-start md:items-center'>
-            <p className='text-[#3C3C3C] text-[14px]'>Measurement: </p>
-
-            <div className='flex items-center gap-[10px] border border-[#6C757DB2] p-[8px] rounded-[8px]'>
-              {['cm/kg', 'inches/lbs'].map((item) => (
-                <div
-                  key={item}
-                  className={`py-[2px] px-[10px] rounded-[8px] text-[#6C757D] cursor-pointer ${
-                    formData.measurementUnit === item
-                      ? 'border border-[#597AFF]'
-                      : ''
-                  }`}
-                  onClick={() =>
-                    setFormData({ ...formData, measurementUnit: item })
-                  }
-                >
-                  <p className='text-[14px]'>{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        )}
         {/* End of calculation */}
 
         {/* form */}

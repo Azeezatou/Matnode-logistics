@@ -29,7 +29,7 @@ const Select = ({
             ref={inputRef}
           >
             {placeholder && (
-              <option value='' selected disabled>
+              <option value='' disabled>
                 {placeholder}
               </option>
             )}

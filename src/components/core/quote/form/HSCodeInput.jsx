@@ -7,6 +7,7 @@ const HSCodeInput = ({
   error,
   inputRef,
   name,
+  onChange,
   ...props
 }) => {
   return (
@@ -25,6 +26,7 @@ const HSCodeInput = ({
             name={name}
             className='w-full pb-2 pt-6 px-[16px] bg-[#E9ECFA] focus:outline-none placeholder:text-[#6C757D] text-[14px]'
             ref={inputRef}
+            onChange={onChange}
             {...props}
           />
           <div className='absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none'>
@@ -51,6 +53,7 @@ HSCodeInput.propTypes = {
   error: PropTypes.bool,
   inputRef: PropTypes.object,
   name: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export default HSCodeInput

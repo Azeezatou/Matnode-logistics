@@ -39,7 +39,7 @@ const QuoteForm = () => {
     levy: '',
     insurance: '',
     description: '',
-    requiresRefridgement: false,
+    requiresRefrigeration: false,
     isDangerous: false,
     requiresInsurance: false,
     isCustomBrokage: false,
@@ -72,13 +72,23 @@ const QuoteForm = () => {
         </p>
 
         <ServiceType formData={formData} setFormData={setFormData} />
-        <PickUp formData={formData} setFormData={setFormData} />
-        <Location
-          formData={formData}
-          setFormData={setFormData}
-          handleChange={handleChange}
-        />
-        <AboutShipment formData={formData} handleChange={handleChange} />
+
+        {formData.serviceType !== '' && (
+          <PickUp formData={formData} setFormData={setFormData} />
+        )}
+
+        {formData.pickUp !== '' && (
+          <Location
+            formData={formData}
+            setFormData={setFormData}
+            handleChange={handleChange}
+          />
+        )}
+
+        {formData.calculationBy === 'Total Shipment' &&
+          formData.delivery === 'Port' && (
+            <AboutShipment formData={formData} handleChange={handleChange} />
+          )}
 
         <CargoDetails
           formData={formData}
@@ -86,31 +96,37 @@ const QuoteForm = () => {
           handleChange={handleChange}
         />
 
-        <QuoteOptionsCheckboxes
-          formData={formData}
-          setFormData={setFormData}
-          handleChange={handleChange}
-        />
-
-        <QuoteContact
-          formData={formData}
-          setFormData={setFormData}
-          handleChange={handleChange}
-        />
-
-        <div className='flex flex-col gap-[8px]'>
-          <p className='text-[#3C3C3C] text-[15px] font-bold font-Rubik'>
-            Additional note
-          </p>
-
-          <textarea
-            className='bg-[#E9ECFA] p-[16px] outline-none'
-            placeholder='Type note here'
-            onChange={handleChange}
-            name='additionalNote'
-            value={formData.additionalNote}
+        {formData.commodity && formData.frequency && (
+          <QuoteOptionsCheckboxes
+            formData={formData}
+            setFormData={setFormData}
+            handleChange={handleChange}
           />
-        </div>
+        )}
+
+        {formData.commodity && formData.frequency && (
+          <QuoteContact
+            formData={formData}
+            setFormData={setFormData}
+            handleChange={handleChange}
+          />
+        )}
+
+        {formData.email && formData.phone && (
+          <div className='flex flex-col gap-[8px]'>
+            <p className='text-[#3C3C3C] text-[15px] font-bold font-Rubik'>
+              Additional note
+            </p>
+
+            <textarea
+              className='bg-[#E9ECFA] p-[16px] outline-none'
+              placeholder='Type note here'
+              onChange={handleChange}
+              name='additionalNote'
+              value={formData.additionalNote}
+            />
+          </div>
+        )}
       </div>
 
       <button

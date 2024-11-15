@@ -11,12 +11,17 @@ const Input = ({
   floatingLabel,
   onChange,
   name,
+  outline,
   ...props
 }) => {
   return (
     <div className={`flex flex-col gap-1 ${className}`}>
       <div className='flex flex-col gap-2'>
-        {label && <label htmlFor={label}>{label}</label>}
+        {label && (
+          <label className='text-[16px] text-[#1B1603]' htmlFor={label}>
+            {label}
+          </label>
+        )}
         <div className='relative'>
           {!floatingLabel && (
             <input
@@ -26,7 +31,9 @@ const Input = ({
               placeholder={placeholder}
               aria-label={label}
               name={name}
-              className='w-full py-[9px] px-[16px] bg-[#E9ECFA] focus:outline-none placeholder:text-[#6C757D] text-[16px]'
+              className={`w-full py-[9px] px-[16px] focus:outline-none placeholder:text-[#6C757D] text-[16px] ${
+                outline ? 'border-[0.7px] border-[#1B160333]' : 'bg-[#E9ECFA]'
+              }`}
               onFocus={(e) => {
                 if (type === 'date') {
                   e.target.type = 'date'
@@ -97,6 +104,7 @@ Input.propTypes = {
   floatingLabel: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string,
+  outline: PropTypes.bool,
 }
 
 export default Input

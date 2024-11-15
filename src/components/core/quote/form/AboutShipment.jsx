@@ -26,7 +26,7 @@ const AboutShipment = ({ formData, handleChange }) => {
         <div className='flex flex-col lg:flex-row gap-[24px]'>
           <div className='grid grid-cols-2 gap-[8px] md:gap-[24px] w-full'>
             <Select
-              options={[]}
+              options={currencies}
               placeholder='Currency'
               className='w-full'
               onChange={handleChange}
