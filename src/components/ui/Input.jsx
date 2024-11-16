@@ -9,19 +9,31 @@ const Input = ({
   error,
   inputRef,
   floatingLabel,
+  onChange,
+  name,
+  outline,
+  ...props
 }) => {
   return (
     <div className={`flex flex-col gap-1 ${className}`}>
       <div className='flex flex-col gap-2'>
-        {label && <label htmlFor={label}>{label}</label>}
+        {label && (
+          <label className='text-[16px] text-[#1B1603]' htmlFor={label}>
+            {label}
+          </label>
+        )}
         <div className='relative'>
           {!floatingLabel && (
             <input
+              {...props}
               type={type === 'date' ? 'text' : type}
               id={label}
               placeholder={placeholder}
               aria-label={label}
-              className='w-full py-[9px] px-[16px] bg-[#E9ECFA] focus:outline-none placeholder:text-[#6C757D] text-[16px]'
+              name={name}
+              className={`w-full py-[9px] px-[16px] focus:outline-none placeholder:text-[#6C757D] text-[16px] ${
+                outline ? 'border-[0.7px] border-[#1B160333]' : 'bg-[#E9ECFA]'
+              }`}
               onFocus={(e) => {
                 if (type === 'date') {
                   e.target.type = 'date'
@@ -32,6 +44,7 @@ const Input = ({
                   e.target.type = 'text'
                 }
               }}
+              onChange={onChange}
               ref={inputRef}
             />
           )}
@@ -44,10 +57,13 @@ const Input = ({
 
           {floatingLabel && (
             <input
+              {...props}
               type={type === 'date' ? 'text' : type}
               id={label}
               placeholder={placeholder}
+              name={name}
               aria-label={label}
+              onChange={onChange}
               className='w-full pb-2 pt-6 px-[16px] bg-[#E9ECFA] focus:outline-none placeholder:text-[#6C757D] text-[14px]'
               onFocus={(e) => {
                 if (type === 'date') {
@@ -85,6 +101,10 @@ Input.propTypes = {
   message: PropTypes.string,
   error: PropTypes.bool,
   inputRef: PropTypes.object,
+  floatingLabel: PropTypes.string,
+  onChange: PropTypes.func,
+  name: PropTypes.string,
+  outline: PropTypes.bool,
 }
 
 export default Input

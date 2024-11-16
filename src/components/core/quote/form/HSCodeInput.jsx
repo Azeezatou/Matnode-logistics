@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types'
 import CaretDownIcon from '../../../icons/CaretDownIcon'
 
-const HSCodeInput = ({ className, message, error, inputRef }) => {
+const HSCodeInput = ({
+  className,
+  message,
+  error,
+  inputRef,
+  name,
+  onChange,
+  ...props
+}) => {
   return (
     <div className={`flex flex-col gap-1 relative ${className}`}>
       <div className='flex flex-col gap-2'>
@@ -15,8 +23,11 @@ const HSCodeInput = ({ className, message, error, inputRef }) => {
             id='hs-code'
             placeholder='Search HS code'
             aria-label='HS Code'
+            name={name}
             className='w-full pb-2 pt-6 px-[16px] bg-[#E9ECFA] focus:outline-none placeholder:text-[#6C757D] text-[14px]'
             ref={inputRef}
+            onChange={onChange}
+            {...props}
           />
           <div className='absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none'>
             <CaretDownIcon />
@@ -41,6 +52,8 @@ HSCodeInput.propTypes = {
   message: PropTypes.string,
   error: PropTypes.bool,
   inputRef: PropTypes.object,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export default HSCodeInput

@@ -5,7 +5,10 @@ import Phone from '../../assets/images/Vector.png'
 const Navbar = () => {
   return (
     <>
-      <div className='px-3 py-2 mx-auto text-center flex justify-between items-center shadow'id='Navbar' >
+      <div
+        className='px-[40px] py-2 mx-auto text-center flex justify-between items-center shadow'
+        id='Navbar'
+      >
         <div>
           <Link to='/'>
             <img src={Logo} alt='Matnode logo' className='md:w-36 w-24' />

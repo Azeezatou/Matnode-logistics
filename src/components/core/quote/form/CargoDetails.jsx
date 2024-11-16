@@ -2,13 +2,19 @@ import PropTypes from 'prop-types'
 import Input from '../../../ui/Input'
 import Select from '../../../ui/Select'
 
-const CargoDetails = ({
-  commodityRef,
-  frequencyRef,
-  freighterTermRef,
-  quantityValidityDateRef,
-  targetPriceRef,
-}) => {
+const CargoDetails = ({ formData, handleChange }) => {
+  const frequencies = [
+    { label: 'One-off shipment', value: 'one-off' },
+    { label: 'Daily', value: 'daily' },
+    { label: 'Weekly', value: 'weekly' },
+    { label: 'Monthly', value: 'monthly' },
+  ]
+
+  const freigherTerms = [
+    { label: 'Prepaid', value: 'prepaid' },
+    { label: 'Collect', value: 'collect' },
+  ]
+
   return (
     <div className='flex flex-col gap-[24px]'>
       <p className='text-[#3C3C3C] text-[15px] font-bold font-Rubik'>
@@ -21,13 +27,17 @@ const CargoDetails = ({
             placeholder='Commodity'
             type={'text'}
             className='w-full'
-            inputRef={commodityRef}
+            value={formData.commodity}
+            onChange={handleChange}
+            name='commodity'
           />
           <Select
             placeholder='Frequency of shipment'
             className='w-full'
-            options={[]}
-            inputRef={frequencyRef}
+            options={frequencies}
+            value={formData.frequency}
+            onChange={handleChange}
+            name='frequency'
           />
         </div>
 
@@ -35,16 +45,21 @@ const CargoDetails = ({
           <Select
             placeholder='Freighter term'
             className='w-full'
-            options={[]}
+            options={freigherTerms}
             message={'(Optional)'}
-            inputRef={freighterTermRef}
+            value={formData.freighterTerm}
+            onChange={handleChange}
+            name='freighterTerm'
           />
+
           <Input
             placeholder='Quantity validity date'
             type={'text'}
             className='w-full'
             message={'(Optional)'}
-            inputRef={quantityValidityDateRef}
+            value={formData.quantityValidityDate}
+            onChange={handleChange}
+            name='quantityValidityDate'
           />
         </div>
 
@@ -54,7 +69,9 @@ const CargoDetails = ({
             type={'text'}
             className='w-full'
             message={'(Optional)'}
-            inputRef={targetPriceRef}
+            onChange={handleChange}
+            name='targetPrice'
+            value={formData.targetPrice}
           />
         </div>
       </div>
@@ -63,11 +80,9 @@ const CargoDetails = ({
 }
 
 CargoDetails.propTypes = {
-  commodityRef: PropTypes.object.isRequired,
-  frequencyRef: PropTypes.object.isRequired,
-  freighterTermRef: PropTypes.object.isRequired,
-  quantityValidityDateRef: PropTypes.object.isRequired,
-  targetPriceRef: PropTypes.object.isRequired,
+  setFormData: PropTypes.func,
+  formData: PropTypes.object,
+  handleChange: PropTypes.func,
 }
 
 export default CargoDetails

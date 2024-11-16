@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const ServiceType = ({ active, setServiceType }) => {
+const ServiceType = ({ formData, setFormData }) => {
   const services = ['HCL', 'FCL', 'Air', 'Road']
 
   return (
@@ -12,9 +12,9 @@ const ServiceType = ({ active, setServiceType }) => {
         {services.map((service) => (
           <div
             key={service}
-            onClick={() => setServiceType(service)}
+            onClick={() => setFormData({ ...formData, serviceType: service })}
             className={`flex items-center justify-center w-full h-[38px] cursor-pointer ${
-              active === service
+              formData.serviceType === service
                 ? 'border-2 border-[#597AFF] text-[#597AFF] font-semibold'
                 : 'border border-[#6C757D] text-[#6C757D]'
             }`}
@@ -28,8 +28,8 @@ const ServiceType = ({ active, setServiceType }) => {
 }
 
 ServiceType.propTypes = {
-  setServiceType: PropTypes.func,
-  active: PropTypes.string,
+  formData: PropTypes.object.isRequired,
+  setFormData: PropTypes.func.isRequired,
 }
 
 export default ServiceType
