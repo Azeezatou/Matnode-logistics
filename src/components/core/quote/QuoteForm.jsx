@@ -65,7 +65,7 @@ const QuoteForm = () => {
     <form
       className='bg-white w-[90%] shadow-lg pt-[24px] md:pt-[32px] px-[16px] md:px-[56px] pb-[24px] md:pb-[56px]'
       onSubmit={handleSubmit}
-    >
+      >
       <div className='flex flex-col gap-[32px]'>
         <p className='font-Oswald text-[32px] font-bold'>
           Kindly fill this form
@@ -129,13 +129,18 @@ const QuoteForm = () => {
         )}
       </div>
 
-      <button
+      <div className="flex items-end">
+        <button
         type='submit'
-        className='bg-[#FFD426] hover:opacity-80 transition-all duration-300 h-[54px] w-[224.78px] font-Rubik text-[16.2px] mt-20'
-      >
-        Submit Quote
-      </button>
+        className='bg-[#FFD426] hover:opacity-80 transition-all duration-300 h-[54px] w-[224.78px] font-Rubik uppercase text-[16.2px] mt-20 tracking-wider relative'
+        >
+        Submit Quote 
+          <span className="absolute top-1/2 mx-3 h-[1px] w-6 bg-black transform -translate-y-1/2"></span>
+        </button>
+        <div className="border-2 border-primary -ml-2 -mb-[5px] w-4 h-16"></div>
+      </div>
     </form>
+      
   )
 }
 
