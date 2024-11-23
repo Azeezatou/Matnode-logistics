@@ -99,7 +99,7 @@ const QuoteForm = () => {
     const res = await quotesRequests.createNew(reqData)
     if (!res.success) {
       Loading.remove()
-      return Notify.failure(res.message)
+      return Notify.failure(res.message[0] || res.message)
     }
 
     Loading.remove()
