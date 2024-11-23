@@ -15,6 +15,20 @@ export const authRequests = {
     }
   },
 
+  register: async (body, setLoading) => {
+    try {
+      const res = await httpRequest(setLoading).post(`/auth/register`, body)
+
+      return apiResponse(true, 'registered success.', res.data)
+    } catch (err) {
+      return apiResponse(
+        false,
+        err?.response?.data?.message || err?.message || 'Error occurred.',
+        err
+      )
+    }
+  },
+
   profile: async (setLoading) => {
     try {
       const res = await httpRequest(setLoading).get(`/auth/profile`)

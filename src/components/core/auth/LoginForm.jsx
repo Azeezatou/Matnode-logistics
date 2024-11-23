@@ -1,15 +1,38 @@
+import { Loading, Notify } from 'notiflix'
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../contexts/AuthContext'
+import { authRequests } from '../../../libs/requests/auth.request'
 import Button from '../../ui/Button'
 import Input from '../../ui/Input'
 
 const LoginForm = () => {
+  const authContext = useAuth()
+  const navigate = useNavigate()
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault()
 
     console.log(emailRef.current.value, passwordRef.current.value)
+
+    Loading.circle()
+    const res = await authRequests.login({
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    })
+
+    if (!res.success) {
+      Loading.remove()
+      return Notify.failure(res.message)
+    }
+
+    authContext.login(res.data.user, res.data.token)
+
+    Loading.remove()
+    console.log(res)
+    await navigate('/dashboard')
   }
 
   return (

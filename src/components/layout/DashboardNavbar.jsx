@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/images/logo.png'
+import { useAuth } from '../../contexts/AuthContext'
 
 const DashboardNavbar = () => {
+  const authContext = useAuth()
   return (
     <>
       <div
@@ -16,7 +18,10 @@ const DashboardNavbar = () => {
         </div>
 
         <div className='flex gap-4 sm:text-sm'>
-          <button className='flex items-center gap-2'>
+          <button
+            className='flex items-center gap-2'
+            onClick={() => authContext.logout()}
+          >
             <svg
               width='20'
               height='21'
