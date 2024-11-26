@@ -11,11 +11,11 @@ const FooterLinks = [
   },
   {
     title: 'About',
-    link: '/#about',
+    link: '#about',
   },
   {
     title: 'Services',
-    link: '/#services',
+    link: '#services',
   },
   {
     title: 'Get Quote',
@@ -23,7 +23,7 @@ const FooterLinks = [
   },
   {
     title: 'Contact Us',
-    link: '/#contact',
+    link: '#contact',
   },
 ]
 const Footer = () => {
@@ -33,18 +33,18 @@ const Footer = () => {
         <div className='w-full md:w-1/3 mb-8 md:mb-0'>
           <img src={Logo} className='sm:w-24 w-28 ' />
           <div className='flex items-center gap-3 mt-8 -ml-2'>
-            <Link to='#'>
+            <a href="">
               <FaFacebookF className='text-3xl hover:text-primary duration-300' />
-            </Link>
-            <Link to='#'>
+            </a>
+            <a href="https://x.com/Matnodelogistic" target="_blank" rel="noopener noreferrer">
               <FaTwitter className='text-3xl hover:text-primary duration-300' />
-            </Link>
-            <Link to='#'>
+            </a>
+            <a href="https://www.instagram.com/matnodelogistics" target="_blank" rel="noopener noreferrer">
               <AiFillInstagram className='text-3xl hover:text-primary duration-300' />
-            </Link>
-            <Link to='#'>
+            </a>
+            <a href="" target="_blank" rel="noopener noreferrer">
               <FaYoutube className='text-3xl hover:text-primary duration-300' />
-            </Link>
+            </a>
           </div>
         </div>
         {/* Links */}

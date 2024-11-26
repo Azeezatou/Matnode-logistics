@@ -58,7 +58,7 @@ const services = [
 ]
 const Services = () => {
   return (
-    <div className='bg-[#f9f9f9] p-8'>
+    <div className='bg-[#f9f9f9] p-8' id='services'>
       {/* Lorem Ipsum */}
       <div className=' p-5'>
         <div className='text-center '>

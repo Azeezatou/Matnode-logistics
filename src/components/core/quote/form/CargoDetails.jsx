@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import Input from '../../../ui/Input'
 import Select from '../../../ui/Select'
+import DatePicker from 'react-datepicker'
+import { useState } from 'react'
 
 const CargoDetails = ({ formData, handleChange }) => {
   const frequencies = [
@@ -14,6 +16,7 @@ const CargoDetails = ({ formData, handleChange }) => {
     { label: 'Prepaid', value: 'prepaid' },
     { label: 'Collect', value: 'collect' },
   ]
+  const [startDate, setStartDate] = useState(null);
 
   return (
     <div className='flex flex-col gap-[24px]'>
@@ -52,15 +55,17 @@ const CargoDetails = ({ formData, handleChange }) => {
             name='freighterTerm'
           />
 
-          <Input
-            placeholder='Quantity validity date'
-            type={'text'}
-            className='w-full'
-            message={'(Optional)'}
-            value={formData.quantityValidityDate}
-            onChange={handleChange}
-            name='quantityValidityDate'
-          />
+        <Input
+          placeholder='Quantity validity date'
+          selected={startDate}
+          id='datePicker'
+          className='w-full'
+          message={'(Optional)'}
+          value={formData.quantityValidityDate}
+          onChange={(date) => setStartDate(date)}
+          name='quantityValidityDate'
+          dateFormat="yyyy/MM/dd"
+        />
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-[24px]'>

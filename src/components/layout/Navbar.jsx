@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className=' px-[7px] md;px-[40px] py-2 mx-auto text-center flex justify-between items-center shadow'
+        className=' px-[7px] md;px-[40px] py-2 mx-auto text-center flex justify-between items-center shadow scroll-smooth'
         id='Navbar'
       >
         <div>
@@ -25,7 +25,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to=''
+              to='#about'
               className='text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold'
             >
               About Us
@@ -33,7 +33,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to=''
+              to='#services'
               className='text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold'
             >
               Services
@@ -41,7 +41,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to=''
+              to='#support'
               className='text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold'
             >
               Why Choose Us

@@ -5,7 +5,7 @@ import Port from '../../../assets/images/port.jpg'
 
 const Hero = () => {
   return (
-    <div className=" flex flex-col sm:flex-row h-auto md:bg-[url('../assets/images/port.jpg')] ">
+    <div className=" flex flex-col sm:flex-row h-auto md:bg-[url('../assets/images/port.jpg')] " id='hero'>
       {/* Left hero section */}
       <div className=' text-white bg-[#1b1603] md:p-24 p-16 flex flex-col items-center justify-center md:w-1/2 min-h-[620px] '>
         <div className='relative container '>

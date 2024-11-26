@@ -33,7 +33,7 @@ const Solutions = [
 
 export const SupportSection = () => {
   return (
-    <div>
+    <div id='support'>
       <div className='border-2 border-secondary relative text-center m-12 p-5 leading-10'>
         <img
           src={Quote}

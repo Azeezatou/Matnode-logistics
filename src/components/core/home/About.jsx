@@ -3,7 +3,7 @@ import Woman from '../../../assets/images/aboout-section-photo.jpg'
 
 const About = () => {
   return (
-    <div className=' flex flex-col md:flex-row h-auto md:space-x-0 items-start p-8 m-10'>
+    <div className=' flex flex-col md:flex-row h-auto md:space-x-0 items-start p-8 m-10' id='about'>
       {/* Left About Section */}
       <div className='md:w-3/4 mb-2 md:mb-0'>
         <img

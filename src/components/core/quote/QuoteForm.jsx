@@ -1,4 +1,5 @@
 import { Loading, Notify } from 'notiflix'
+import DatePicker from 'react-datepicker'
 import { useState } from 'react'
 import HandShakeImage from '../../../assets/images/handshake.png'
 import { quotesRequests } from '../../../libs/requests/quotes.request'
@@ -35,7 +36,8 @@ const QuoteForm = () => {
     commodity: '',
     frequency: '',
     freighterTerm: '',
-    quantityValidityDate: '',
+    quantityValidityDate: DatePicker,
+    startDate: '',
     targetPrice: '',
     cost: '',
     freight: '',
@@ -118,6 +120,21 @@ const QuoteForm = () => {
             <p className='font-Oswald text-[32px] font-bold'>
               Kindly fill this form
             </p>
+
+            <div className='flex justify-between text-xs md:text-xl'>
+              <div className='mr-3'>
+                <h2 className='font-bold'>Due Date</h2>
+                <p className='text-slate-500'>Period the business will be open for quoting</p>
+              </div>
+              <div>
+                <select className='bg-[#E9ECFA] p-3 text-slate-400 rounded-sm font-Rubik'>
+                  <option value=''>Accept quotes for</option>
+                  <option value='2_days'>2 days</option>
+                  <option value='3_days'>3 days</option>
+                  <option value='5_days'>5 days</option>
+                </select>
+              </div>
+            </div>
 
             <ServiceType formData={formData} setFormData={setFormData} />
 
