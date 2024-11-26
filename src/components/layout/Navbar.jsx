@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className='px-[40px] py-2 mx-auto text-center flex justify-between items-center shadow'
+        className=' px-[7px] md;px-[40px] py-2 mx-auto text-center flex justify-between items-center shadow'
         id='Navbar'
       >
         <div>
@@ -14,7 +14,7 @@ const Navbar = () => {
             <img src={Logo} alt='Matnode logo' className='md:w-36 w-24' />
           </Link>
         </div>
-        <ul className='hidden md:flex gap-7  md:text-sm'>
+        <ul className='hidden md:flex gap-5  md:text-sm'>
           <li>
             <Link
               to='/'
@@ -25,7 +25,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to='/about'
+              to=''
               className='text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold'
             >
               About Us
@@ -33,7 +33,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to='/services'
+              to=''
               className='text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold'
             >
               Services
@@ -41,7 +41,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to='/support'
+              to=''
               className='text-xl hover:border-b-4 hover:border-secondary active:border-secondary active:font-semibold'
             >
               Why Choose Us

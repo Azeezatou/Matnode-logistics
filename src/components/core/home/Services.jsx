@@ -80,8 +80,8 @@ const Services = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container'>
         {services.map((service) => (
           <div className='transform transition-transform duration-300 hover:scale-90 '>
-            <div className='p-6 m-5 bg-white  shadow-md hover:shadow-lg transition-shadow border '>
-              <div className=''> </div>
+            <div className='relative p-6 m-5 bg-white  shadow-md hover:shadow-lg transition-shadow border '>
+              <div className='absolute left-0 top-0 w-2 h-14 bg-[#ff8a00]'> </div>
               <div className='flex'>
                 <img src={service.image} className='max-w-12 mb-4' />
               </div>

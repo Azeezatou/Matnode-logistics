@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Box from '../../../assets/images/hero-box.png'
 import Port from '../../../assets/images/port.jpg'
 
@@ -29,9 +30,11 @@ const Hero = () => {
           <p className='font-Rubik text-xl md:text-2xl pt-4 pb-2 my-3'>
             Tailored services to your satisfaction.....
           </p>
-          <button className='bg-primary text-[#1b1603] text-sm px-7 py-3 font-Rubik font-medium text-center tracking-wider hover:bg-[#1b1603] hover:text-primary hover:border-2 hover:border-primary'>
+          <Link to='/quote'>
+            <button className='bg-primary text-[#1b1603] text-sm px-7 py-3 font-Rubik font-medium text-center tracking-wider hover:bg-[#1b1603] hover:text-primary hover:border-2 hover:border-primary'>
             GET QUOTE
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
       {/* Right hero section */}

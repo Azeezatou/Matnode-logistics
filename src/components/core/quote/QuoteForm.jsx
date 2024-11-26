@@ -180,12 +180,17 @@ const QuoteForm = () => {
             )}
           </div>
 
-          <button
+          <div className='flex items-end'>
+            <button
             type='submit'
-            className='bg-[#FFD426] hover:opacity-80 transition-all duration-300 h-[54px] w-[224.78px] font-Rubik text-[16.2px] mt-20'
-          >
-            Submit Quote
-          </button>
+            className='bg-[#FFD426] hover:opacity-80 transition-all duration-300 h-[50px] w-[218px] md:h-[54px] md:w-[224.78px] font-Rubik text-[16.2px] mt-20 relative pl-0'
+            >
+            SUBMIT QUOTE
+            <div className='absolute border border-black w-7 top-6 right-4'> </div>
+            </button>
+            <div className=' border-2 border-[#ffd426] h-16 w-4 -mb-1.5 -ml-2.5'></div>
+            
+          </div>
         </form>
       )}
 
@@ -201,7 +206,7 @@ const QuoteForm = () => {
             Thank you!
           </p>
           <p className='hidden md:block max-w-[380px] text-[16px] md:text-[22px] text-center'>
-            Your quote request has been sent, we will reach ou to you within 24
+            Your quote request has been sent, we will reach out to you within 24
             hrs.
           </p>
 
@@ -211,7 +216,7 @@ const QuoteForm = () => {
             </p>
 
             <p className='md:hidden max-w-[380px] text-[16px] md:text-[22px] text-center'>
-              we will reach ou to you within 24 hrs.
+              we will reach out to you within 24 hrs.
             </p>
           </div>
         </div>

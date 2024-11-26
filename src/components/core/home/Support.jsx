@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Crane from '../../../assets/images/crane.jpg'
 import Box from '../../../assets/images/Objects.png'
 import Bus from '../../../assets/stuff/bus.png'
@@ -113,9 +114,11 @@ const Support = () => {
           <h2 className='font-Oswald font-extrabold text-[#1b1603] text-2xl md:text-6xl mb-5'>
             Get your items delivered smoothly and on time
           </h2>
-          <button className='bg-[#1b1603] my-4 text-white p-9 text-sm md:text-xl lg:px-5 py-3 font-Rubik font-semibold text-center uppercase hover:text-black hover:bg-primary hover:border-2 hover:border-black'>
+          <Link to='/quote'>
+            <button className='bg-[#1b1603] my-4 text-white p-9 text-sm md:text-xl lg:px-5 py-3 font-Rubik font-semibold text-center uppercase hover:text-black hover:bg-primary hover:border-2 hover:border-black'>
             Get Quote
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
