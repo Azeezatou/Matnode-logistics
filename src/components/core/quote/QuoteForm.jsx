@@ -1,5 +1,4 @@
 import { Loading, Notify } from 'notiflix'
-import DatePicker from 'react-datepicker'
 import { useState } from 'react'
 import HandShakeImage from '../../../assets/images/handshake.png'
 import { quotesRequests } from '../../../libs/requests/quotes.request'
@@ -36,7 +35,7 @@ const QuoteForm = () => {
     commodity: '',
     frequency: '',
     freighterTerm: '',
-    quantityValidityDate: DatePicker,
+    quantityValidityDate: '',
     startDate: '',
     targetPrice: '',
     cost: '',
@@ -124,7 +123,9 @@ const QuoteForm = () => {
             <div className='flex justify-between text-xs md:text-xl'>
               <div className='mr-3'>
                 <h2 className='font-bold'>Due Date</h2>
-                <p className='text-slate-500'>Period the business will be open for quoting</p>
+                <p className='text-slate-500'>
+                  Period the business will be open for quoting
+                </p>
               </div>
               <div>
                 <select className='bg-[#E9ECFA] p-3 text-slate-400 rounded-sm font-Rubik'>
@@ -199,14 +200,15 @@ const QuoteForm = () => {
 
           <div className='flex items-end'>
             <button
-            type='submit'
-            className='bg-[#FFD426] hover:opacity-80 transition-all duration-300 h-[50px] w-[218px] md:h-[54px] md:w-[224.78px] font-Rubik text-[16.2px] mt-20 relative pl-0'
+              type='submit'
+              className='bg-[#FFD426] hover:opacity-80 transition-all duration-300 h-[50px] w-[218px] md:h-[54px] md:w-[224.78px] font-Rubik text-[16.2px] mt-20 relative pl-0'
             >
-            SUBMIT QUOTE
-            <div className='absolute border border-black w-7 top-6 right-4'> </div>
+              SUBMIT QUOTE
+              <div className='absolute border border-black w-7 top-6 right-4'>
+                {' '}
+              </div>
             </button>
             <div className=' border-2 border-[#ffd426] h-16 w-4 -mb-1.5 -ml-2.5'></div>
-            
           </div>
         </form>
       )}
