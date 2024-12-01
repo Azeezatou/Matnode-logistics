@@ -11,7 +11,7 @@ export const apiResponse = (success, message, data) => {
 export const httpRequest = (setLoading) => {
   // Here we set the base URL for all requests made to the api
   const api = axios.create({
-    baseURL: 'http://localhost:4001/api/v1',
+    baseURL: 'https://necessary-eye.pipeops.app/api/v1/',
     // 'https://necessary-eye.pipeops.app/api/v1/',
     // baseURL: '.env',
   })
