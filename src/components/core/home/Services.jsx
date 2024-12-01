@@ -69,9 +69,9 @@ const Services = () => {
             Trusted for our Services
           </h1>
           <p className='font-Rubik mb-4 items-center'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
+            {/* Lorem Ipsum is simply dummy text of the printing and typesetting
             industry <br /> the standard dummy text ever since the when a
-            printer took.
+            printer took. */}
           </p>
         </div>
       </div>
