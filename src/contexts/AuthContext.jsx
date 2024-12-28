@@ -13,7 +13,16 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Check authentication status when route changes
     if (location.pathname === '/dashboard' && (!token || !user)) {
-      navigate('/')
+      navigate('/login')
+    }
+    // Redirect authenticated users from login/register pages to dashboard
+    console.log(location.pathname, token, user)
+    if (
+      (location.pathname === '/login' || location.pathname === '/register') &&
+      token &&
+      user
+    ) {
+      navigate('/dashboard')
     }
   }, [location, token, user, navigate])
 
@@ -21,6 +30,7 @@ export const AuthProvider = ({ children }) => {
     setUser(userData)
     setToken(authToken)
     localStorage.setItem('token', authToken)
+    localStorage.setItem('user', JSON.stringify(userData))
   }
 
   const logout = () => {
